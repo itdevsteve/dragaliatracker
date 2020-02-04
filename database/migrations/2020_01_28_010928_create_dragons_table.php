@@ -31,6 +31,7 @@ class CreateDragonsTable extends Migration
             $table->string('gamepressLink')->nullable();
             $table->tinyInteger('limited')->default(0);
             $table->integer('event')->nullable();
+            $table->date('releaseDate');
         });
     }
 
