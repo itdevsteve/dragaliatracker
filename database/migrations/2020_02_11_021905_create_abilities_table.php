@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventsTable extends Migration
+class CreateAbilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('abilities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name_en');
             $table->string('name_jp');
+            $table->tinyInteger('type');
+            $table->tinyInteger('element')->nullable();
             $table->text('description_en');
             $table->text('description_jp');
-            $table->tinyInteger('type');
-            $table->string('gamepediaLink')->nullable();
-            $table->string('gamepressLink')->nullable();
+            $table->tinyInteger('stat_1');
+            $table->tinyInteger('stat_2');
+            $table->integer("might");
+            $table->integer("value");
+            $table->integer("sp_cost")->nullable();
         });
     }
 
@@ -33,6 +37,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('abilities');
     }
 }
