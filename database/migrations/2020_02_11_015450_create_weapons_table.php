@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdventurersTable extends Migration
+class CreateWeaponsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,20 @@ class CreateAdventurersTable extends Migration
      */
     public function up()
     {
-        Schema::create('adventurers', function (Blueprint $table) {
+        Schema::create('weapons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name_en');
             $table->string('name_jp');
-            $table->tinyInteger('element');
+            $table->tinyInteger('rarity');
+            $table->tinyInteger('tier');
+            $table->tinyInteger('element')->nullable();
             $table->tinyInteger('weapon_type');
-            $table->tinyInteger('role');
-            $table->tinyInteger('rarity_min');
-            $table->tinyInteger('rarity_max');
-            $table->smallInteger('manaCircle_max');
+            $table->tinyInteger('category');
             $table->smallInteger('strength_min');
             $table->smallInteger('strength_max');
             $table->smallInteger('health_min');
             $table->smallInteger('health_max');
-            $table->smallInteger('might_min');
-            $table->smallInteger('might_max');
             $table->string('gamepediaLink')->nullable();
             $table->string('gamepressLink')->nullable();
             $table->tinyInteger('limited')->default(0);
@@ -45,6 +42,6 @@ class CreateAdventurersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adventurers');
+        Schema::dropIfExists('weapons');
     }
 }
