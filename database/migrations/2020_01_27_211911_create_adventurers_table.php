@@ -16,7 +16,8 @@ class CreateAdventurersTable extends Migration
         Schema::create('adventurers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_jp');
             $table->tinyInteger('element');
             $table->tinyInteger('weapon');
             $table->tinyInteger('role');

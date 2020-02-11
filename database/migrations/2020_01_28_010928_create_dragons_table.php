@@ -16,7 +16,8 @@ class CreateDragonsTable extends Migration
         Schema::create('dragons', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_jp');
             $table->tinyInteger('element');
             $table->tinyInteger('rarity_min');
             $table->tinyInteger('rarity_max');

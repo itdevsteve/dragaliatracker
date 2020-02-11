@@ -16,7 +16,8 @@ class CreateWyrmprintsTable extends Migration
         Schema::create('wyrmprints', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_jp');
             $table->tinyInteger('rarity_min');
             $table->tinyInteger('rarity_max');
             $table->smallInteger('strength_min');
